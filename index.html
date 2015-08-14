@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JshScrollTag</title>
+  </head>
+  <body>
+    <script>
+      
+    </script>
+    <style>
+      body, div {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: url('images/1.jpg') scroll no-repeat center top;
+      }
+      .nav {
+        width: 170px;
+        height: 231px;
+        background-color: green;
+        background: url('images/1.png') scroll no-repeat center top;
+        
+      }
+      .on{}
+      
+      #right{}
+      .bg1{background: url('images/1.png') scroll no-repeat center top;}
+      .bg2{background: url('images/2.png') scroll no-repeat center top;}
+      .bg3{background: url('images/3.png') scroll no-repeat center top;}
+      
+    </style>
+    <div id="top" class="nav"></div>
+    <div id="left" class="nav"></div>
+    <div id="right" class="nav" style="">
+      <div pos="p1" style="width:170px;height:65px;margin-top:35px;"></div>
+      <div pos="p2" style="width:170px;height:65px;"></div>
+      <div pos="p3" style="width:170px;height:65px;"></div>
+    </div>
+    <div id="p1" style="width:1000px;height:1090px;margin:534px auto 0;"></div>
+    <div id="p2" style="width:1000px;height:1090px;margin:0px auto 0;"></div>
+    <div id="p3" style="width:1000px;height:900px;margin:1px auto 0;"></div>
+    <div id="center" class="nav"></div>
+    <div id="bottom" class="nav"></div>
+    <script src="js/jquery.js"></script>
+    <script src="js/jshAd.js"></script>
+    <script>
+      
+
+      JshScrollTag("top", {
+        direction : "topLeft"
+      });
+
+      JshScrollTag("center", {
+        direction : "topRight"
+      });
+
+      JshScrollTag("bottom", {
+        direction : "bottomLeft"
+      });
+
+      JshScrollTag("left", {
+        pos:true, // 滚动后是否自定义位置
+        // posTop:0, // 自定义的时Top的位置
+        startMoveTop:536,  // 流动的高度，定位自定义高度
+        startTop:664, // 页面加载后的位置
+        baseSize:1023, // 参考高度
+        direction : "left"
+      });
+
+      JshScrollTag("right", {
+        pos:true, // 滚动后是否自定义位置
+        // posTop:0, // 自定义的时Top的位置
+        startMoveTop:536,  // 流动的高度，定位自定义高度
+        startTop:664, // 页面加载后的位置
+        baseSize:1023, // 参考高度
+        direction : "right",
+        bind: ["click", "on", function( that, i, dataArr ) {
+          $(that).parent().css({"background-image":"url(images/"+(i+1)+".png)"});
+        }]
+      });
+
+    </script>
+  </body>
+</html>
